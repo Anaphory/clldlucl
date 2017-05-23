@@ -19,7 +19,7 @@ Releasing clldmpg
 
 - Bump version number:
 
-  $ git commit -a -m"bumbed version number"
+  $ git commit -a -m"bumped version number"
 
 - Create a release tag:
 
@@ -33,5 +33,5 @@ Releasing clldmpg
 - Make sure your system Python has ``setuptools-git`` installed and release to
   PyPI::
 
-  $ ./pypi.sh <release number>
+  $ python setup.py sdist register upload
 

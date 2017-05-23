@@ -2,13 +2,14 @@ from setuptools import setup, find_packages
 
 
 install_requires = [
-    'clld>=2.0.1',
+    'clld>=3.1.0',
+    'purl',
 ]
 
 tests_require = [
     'WebTest >= 1.3.1',  # py3 compat
     'pep8',
-    'mock==1.0.0',
+    'mock',
 ]
 
 docs_extras = [
@@ -25,7 +26,7 @@ testing_extras = tests_require + [
 
 setup(
     name='clldmpg',
-    version='2.0.0',
+    version='2.4.1',
     description=(
         'Python library supporting development of CLLD apps maintained by MPI SHH'),
     long_description='',

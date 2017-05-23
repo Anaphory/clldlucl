@@ -20,7 +20,8 @@
 <p> 
     Leiden University Centre for Linguistics<br />
     Postbus 9515<br />
-    2300 RA Leiden
+    2300 RA Leiden<br />
+	The Netherlands
 </p>
 <h4>Data Protection</h4>
 <h5>Data Collection and Processing</h5>
