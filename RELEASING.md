@@ -1,6 +1,6 @@
 Releasing clldlucl
 =================
-(Adapted to the Leiden University Centre for Linguistics by G.A. Kaiping.)
+(Adapted to LUCL use by G.A. Kaiping.)
 
 - Do platform test via tox:
 
