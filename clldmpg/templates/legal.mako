@@ -36,10 +36,6 @@
     Session cookies are used within the scope of this Internet session for technical
     reasons. This data is deleted at the latest when you close your browser.
 </p>
-<p>
-    The data protection officer of the Max Planck Society is available for questions
-    concerning the topic of data protection at dsb@gv.mpg.de or +49 (0) 89-2108-1317.
-</p>
 <h5>Data Transmission</h5>
 <p>
     Your personal data will only be transmitted to government organizations and
