@@ -1,5 +1,6 @@
-Releasing clldmpg
+Releasing clldlucl
 =================
+(Adapted to the Leiden University Centre for Linguistics by G.A. Kaiping.)
 
 - Do platform test via tox:
 
@@ -9,7 +10,7 @@ Releasing clldmpg
 
 - Make sure all scaffold tests pass:
 
-  $ ./venvs/clld-clld/clldmpg/build.sh "<prev-rel-no>"
+  $ ./venvs/clld-clld/clldlucl/build.sh "<prev-rel-no>"
 
 - Update translations (using a py3 env with babel patched for py3 compatibility).
 

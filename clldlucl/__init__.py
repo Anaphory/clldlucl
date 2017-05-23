@@ -21,8 +21,8 @@ class MpgOlacConfig(OlacConfig):
 def includeme(config):
     config.include('clld.web.app')
     config.registry.registerUtility(MpgOlacConfig(), IOlacConfig)
-    config.add_static_view('clldmpg-static', 'clldmpg:static')
-    config.add_settings({'clld.publisher_logo': 'clldmpg:static/lucl.png'})
+    config.add_static_view('clldlucl-static', 'clldlucl:static')
+    config.add_settings({'clld.publisher_logo': 'clldlucl:static/lucl.png'})
 
     config.add_route('google-site-verification', 'googlebbc8f4da1abdc58b.html')
     config.add_view(

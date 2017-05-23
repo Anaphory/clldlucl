@@ -1,4 +1,6 @@
 # coding: utf8
+# Adapted to LUCL use by G.A. Kaiping.
+
 from __future__ import unicode_literals, print_function, division
 from unittest import TestCase
 
@@ -14,7 +16,7 @@ class MockObject(object):
 
 class Tests(TestCase):
     def test_mimetype(self):
-        from clldmpg.cdstar import mimetype
+        from clldlucl.cdstar import mimetype
 
         self.assertEqual(mimetype(MockObject({}, mimetype='x')), 'x')
         self.assertEqual(mimetype(MockObject({}, mime_type='x')), 'x')
@@ -22,7 +24,7 @@ class Tests(TestCase):
         self.assertEqual(mimetype(MockObject({'mime_type': 'x'})), 'x')
 
     def test_bitstream_url(self):
-        from clldmpg.cdstar import bitstream_url
+        from clldlucl.cdstar import bitstream_url
 
         obj = MockObject(dict(objid='x', original='y'))
         self.assertTrue(bitstream_url(obj).endswith('/x/y'))
@@ -31,7 +33,7 @@ class Tests(TestCase):
         self.assertTrue(bitstream_url(obj, type_='other').endswith('/x/y'))
 
     def test_MediaCol(self):
-        from clldmpg.cdstar import MediaCol
+        from clldlucl.cdstar import MediaCol
 
         col = MediaCol(MagicMock(), 'name', 'audio')
         self.assertIn(
@@ -43,7 +45,7 @@ class Tests(TestCase):
             '')
 
     def test_media(self):
-        from clldmpg.cdstar import audio, video, linked_image
+        from clldlucl.cdstar import audio, video, linked_image
 
         obj = MockObject(dict(objid='x', original='1'))
         self.assertRaises(ValueError, video, obj)

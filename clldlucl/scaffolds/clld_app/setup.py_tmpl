@@ -1,8 +1,9 @@
 from setuptools import setup, find_packages
+# Adapted to LUCL use by G.A. Kaiping.
 
 
 requires = [
-    'clldmpg>=1.1.0',
+    'clldlucl>=1.1.0',
 ]
 
 tests_require = [

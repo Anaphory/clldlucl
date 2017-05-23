@@ -1,19 +1,23 @@
+#!/bin/sh
+
+# Adapted to LUCL use by G.A. Kaiping.
+
 VENVS=~/venvs
 
 cd $VENVS/cheesecake
 . bin/activate
-cd clldmpg
+cd clldlucl
 git checkout master
 git pull origin master
 python setup.py sdist
-cheesecake_index --path="dist/clldmpg-$1.tar.gz" --with-pep8
+cheesecake_index --path="dist/clldlucl-$1.tar.gz" --with-pep8
 
 cd $VENVS
 virtualenv testapp
 cd testapp
 . bin/activate
-pip install "$VENVS/cheesecake/clldmpg/dist/clldmpg-$1.tar.gz"
-pcreate -t clldmpg_app testapp
+pip install "$VENVS/cheesecake/clldlucl/dist/clldlucl-$1.tar.gz"
+pcreate -t clldlucl_app testapp
 cd testapp
 python setup.py develop
 python testapp/scripts/initializedb.py development.ini

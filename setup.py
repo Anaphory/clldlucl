@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages
-
+# Adapted to LUCL use by G.A. Kaiping.
 
 install_requires = [
     'clld>=3.1.0',
@@ -25,10 +25,10 @@ testing_extras = tests_require + [
 ]
 
 setup(
-    name='clldmpg',
+    name='clldlucl',
     version='2.4.1',
     description=(
-        'Python library supporting development of CLLD apps maintained by MPI SHH'),
+        'Python library supporting development of CLLD apps maintained by LUCL'),
     long_description='',
     classifiers=[
         "Intended Audience :: Developers",
@@ -51,12 +51,12 @@ setup(
     install_requires=install_requires,
     extras_require={'testing': testing_extras, 'docs': docs_extras},
     tests_require=tests_require,
-    test_suite="clldmpg.tests",
-    message_extractors={'clldmpg': [
+    test_suite="clldlucl.tests",
+    message_extractors={'clldlucl': [
         ('**.py', 'python', None),
         ('**.mako', 'mako', None),
         ('static/**', 'ignore', None)]},
     entry_points="""\
         [pyramid.scaffold]
-        clldmpg_app=clldmpg.scaffolds:ClldAppTemplate
+        clldlucl_app=clldlucl.scaffolds:ClldAppTemplate
     """)
