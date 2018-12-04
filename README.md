@@ -8,4 +8,4 @@ Provides an LUCL specific pyramid app scaffold and a pyramid package to be inclu
 a clld app.
 
 This package is derived from the Max Planck Society's `clldmpg` package.
-Adapted to the Leiden University Centre for Linguistics by G.A. Kaiping.
+Adapted to the Leiden University Centre for Linguistics by Gereon A. Kaiping.
