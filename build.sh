@@ -1,29 +1,21 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-# Adapted to LUCL use by G.A. Kaiping.
+python setup.py sdist
 
 VENVS=~/venvs
-
-cd $VENVS/cheesecake
-. bin/activate
-cd clldlucl
-git checkout master
-git pull origin master
-python setup.py sdist
-cheesecake_index --path="dist/clldlucl-$1.tar.gz" --with-pep8
+WORKING=`pwd`
 
 cd $VENVS
-virtualenv testapp
+python3 -m venv testapp
 cd testapp
 . bin/activate
-pip install "$VENVS/cheesecake/clldlucl/dist/clldlucl-$1.tar.gz"
+pip install -U setuptools
+pip install -U pip
+pip install "$WORKING/dist/clldlucl-$1.tar.gz"
 pcreate -t clldlucl_app testapp
 cd testapp
-python setup.py develop
+pip install -e .[test]
 python testapp/scripts/initializedb.py development.ini
-pip install nose
-pip install mock==1.0
-nosetests
+pytest
 cd $VENVS
 rm -rf testapp
-

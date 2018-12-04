@@ -1,34 +1,11 @@
 from setuptools import setup, find_packages
-# Adapted to LUCL use by G.A. Kaiping.
 
-install_requires = [
-    'clld>=3.1.0',
-    'purl',
-]
-
-tests_require = [
-    'WebTest >= 1.3.1',  # py3 compat
-    'pep8',
-    'mock',
-]
-
-docs_extras = [
-    'Sphinx',
-    'docutils',
-    'repoze.sphinx.autointerface',
-]
-
-testing_extras = tests_require + [
-    'nose',
-    'coverage',
-    'virtualenv',  # for scaffolding tests
-]
 
 setup(
     name='clldlucl',
-    version='2.4.1',
+    version='3.3.2.dev0',
     description=(
-        'Python library supporting development of CLLD apps maintained by LUCL'),
+        'Python library supporting development of CLLD apps maintained by MPI SHH'),
     long_description='',
     classifiers=[
         "Intended Audience :: Developers",
@@ -41,22 +18,40 @@ setup(
         "Topic :: Internet :: WWW/HTTP :: WSGI",
     ],
     keywords='web pyramid',
-    author="Gereon A. Kaiping",
-    author_email="g.a.kaiping@hum.leidenuniv.nl",
+    author="Robert Forkel",
+    author_email="forkel@shh.mpg.de",
     url="http://clld.org",
     license="Apache Software License",
-    packages=find_packages(),
+    packages=find_packages(where='src'),
+    package_dir={'': 'src'},
     include_package_data=True,
     zip_safe=False,
-    install_requires=install_requires,
-    extras_require={'testing': testing_extras, 'docs': docs_extras},
-    tests_require=tests_require,
-    test_suite="clldlucl.tests",
-    message_extractors={'clldlucl': [
+    install_requires=[
+        'clld>=4.2.2',
+        'purl',
+        'clldutils~=2.0',
+    ],
+    extras_require={
+        'test': [
+            'mock>=2.0',
+            'pytest-clld',
+            'pytest-mock',
+            'coverage>=4.2',
+            'pytest-cov',
+        ],
+        'dev': [
+            'tox',
+            'flake8',
+            'wheel',
+            'twine',
+        ],
+    },
+    message_extractors={'src/clldlucl': [
         ('**.py', 'python', None),
         ('**.mako', 'mako', None),
         ('static/**', 'ignore', None)]},
-    entry_points="""\
-        [pyramid.scaffold]
-        clldlucl_app=clldlucl.scaffolds:ClldAppTemplate
-    """)
+    entry_points={
+        'pyramid.scaffold': ['clldlucl_app=clldlucl.scaffolds:ClldAppTemplate'],
+        'console_scripts': ['clldlucl=clldlucl.__main__:main'],
+    },
+)

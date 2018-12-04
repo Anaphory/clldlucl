@@ -1,38 +1,46 @@
 Releasing clldlucl
 =================
-(Adapted to LUCL use by G.A. Kaiping.)
 
 - Do platform test via tox:
-
-  $ tox -r
-
-  Make sure statement coverage is at 100%::
+```
+tox -r
+```
 
 - Make sure all scaffold tests pass:
+```
+cd ./venvs/clld/clldlucl
+./build.sh "<prev-rel-no>"
+```
 
-  $ ./venvs/clld-clld/clldlucl/build.sh "<prev-rel-no>"
-
-- Update translations (using a py3 env with babel patched for py3 compatibility).
-
-  $ python setup.py compile_catalog
-
-- Change setup.py version to the new version number.
+- Change `setup.py` version to the new version number.
 
 - Bump version number:
-
-  $ git commit -a -m"bumped version number"
+```
+git commit -a -m"Release <version number>"
+```
 
 - Create a release tag:
+```
+git tag -a v0.2 -m"first version to be released on pypi"
+```
 
-  $ git tag -a v0.2 -m"first version to be released on pypi"
+- Release to PyPI
+```
+git checkout tags/v$1
+rm dist/*
+python setup.py sdist bdist_wheel
+twine upload dist/*
+```
+
+- Change `setup.py` version to the new version number.
+
+- Set version number for next development cycle:
+```
+git commit -a -m"bumped version number"
+```
 
 - Push to github:
-
-  $ git push origin
-  $ git push --tags
-
-- Make sure your system Python has ``setuptools-git`` installed and release to
-  PyPI::
-
-  $ python setup.py sdist register upload
-
+```
+git push origin
+git push --tags
+```
