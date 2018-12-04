@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='clldlucl',
-    version='3.3.2.dev0',
+    version='3.0.0-alpha',
     description=(
         'Python library supporting development of CLLD apps maintained by MPI SHH'),
     long_description='',

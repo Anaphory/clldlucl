@@ -6,14 +6,14 @@ from clld.web.views.olac import OlacConfig, Participant, Institution
 
 class MpgOlacConfig(OlacConfig):
     def admin(self, req):
-        return Participant("Admin", 'Robert Forkel', 'forkel@shh.mpg.de')
+        return Participant("Admin", "Gereon A. Kaiping", "g.a.kaiping@hum.leidenuniv.nl")
 
     def description(self, req):
         res = OlacConfig.description(self, req)
         res['institution'] = Institution(
-            'Max Planck Institute for the Science of Human History',
-            'http://shh.mpg.de',
-            'Jena, Germany')
+            'Leiden University Centre for Linguistics',
+            'https://www.universiteitleiden.nl/en/humanities/leiden-university-centre-for-linguistics',
+            'Leiden, The Netherlands')
         return res
 
 
@@ -21,7 +21,7 @@ def includeme(config):
     config.include('clld.web.app')
     config.registry.registerUtility(MpgOlacConfig(), IOlacConfig)
     config.add_static_view('clldlucl-static', 'clldlucl:static')
-    config.add_settings({'clld.publisher_logo': 'clldlucl:static/minerva.png'})
+    config.add_settings({'clld.publisher_logo': 'clldlucl:static/lucl.png'})
     config.add_settings(
         {'clld.privacy_policy_url': 'https://www.shh.mpg.de/138116/privacy-policy'})
     config.add_route('google-site-verification', 'googlebbc8f4da1abdc58b.html')

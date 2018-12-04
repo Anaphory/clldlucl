@@ -16,7 +16,7 @@ cd ./venvs/clld/clldlucl
 
 - Bump version number:
 ```
-git commit -a -m"Release <version number>"
+git commit -a -m "Release <version number>"
 ```
 
 - Create a release tag:
