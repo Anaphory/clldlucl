@@ -23,7 +23,7 @@ __all__ = [
     'mimetype', 'maintype', 'bitstream_url', 'link', 'MediaCol', 'audio', 'video',
     'linked_image']
 
-SERVICE_URL = URL("https://cdstar.shh.mpg.de/")
+SERVICE_URL = URL("https://github.com/")
 
 
 def mimetype(obj):
@@ -157,10 +157,11 @@ def video(obj, **kw):
 def downloads(req):
     mod = importlib.import_module(req.registry.settings['clld.pkg'])
     dls = Path(mod.__file__).parent.joinpath('static', 'downloads.json')
+    print(dls)
 
     def bitstream_link(oid, spec):
         url = SERVICE_URL.path(
-            '/bitstreams/{0}/{1}'.format(oid, spec['bitstreamid'])).as_string()
+            '{0}/{1}'.format(oid, spec['bitstreamid'])).as_string()
         return HTML.a(
             '{0} [{1}]'.format(spec['bitstreamid'], format_size(spec['filesize'])),
             href=url)
@@ -168,3 +169,5 @@ def downloads(req):
     dls = load(dls) if dls.exists() else {}
     for rel, spec in sorted(dls.items()):
         yield rel, [bitstream_link(spec['oid'], bs) for bs in spec['bitstreams']]
+
+

@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='clldlucl',
-    version='3.0.0-alpha',
+    version='3.0.0-alpha1',
     description=(
         'Python library supporting development of CLLD apps maintained by MPI SHH'),
     long_description='',
@@ -18,8 +18,8 @@ setup(
         "Topic :: Internet :: WWW/HTTP :: WSGI",
     ],
     keywords='web pyramid',
-    author="Robert Forkel",
-    author_email="forkel@shh.mpg.de",
+    author="Gereon A. Kaiping",
+    author_email="g.a.kaiping@hum.leidenuniv.nl",
     url="http://clld.org",
     license="Apache Software License",
     packages=find_packages(where='src'),
