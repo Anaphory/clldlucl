@@ -3,9 +3,9 @@ from setuptools import setup, find_packages
 
 setup(
     name='clldlucl',
-    version='3.0.0-alpha1',
+    version='3.0.0-beta2',
     description=(
-        'Python library supporting development of CLLD apps maintained by MPI SHH'),
+        'Python library supporting development of CLLD apps maintained by LUCL'),
     long_description='',
     classifiers=[
         "Intended Audience :: Developers",
@@ -27,9 +27,9 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'clld>=4.2.2',
+        'clld',
         'purl',
-        'clldutils~=2.0',
+        'clldutils',
     ],
     extras_require={
         'test': [
